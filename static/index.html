@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <body>
+    <div ng-app="myApp" ng-controller="customersCtrl"> 
+
+        <ul>
+          <li ng-repeat="x in names">
+            {{ x.make + ', ' + x.model }}
+          </li>
+        </ul>
+        
+        </div>
+        
+        <script>
+        var app = angular.module('myApp', []);
+        app.controller('customersCtrl', function($scope, $http) {
+            console.log("here2");
+            $http.get("/cars")
+            .success(function(response) {
+                console.log("here", response);
+                $scope.names = response.cars;
+            });
+        });
+        </script>
+  </body>
+</html>
