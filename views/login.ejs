@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="style.css">
+
+    <% if (messages.error) { %>
+        <div class="alert">
+            <%= messages.error %>
+        </div>
+    <% } %> 
+
+<form action="/login" method="post" class="submission-form" >
+    
+    <div >
+        <label for="email" >Email</label>
+        <input type="email" autocomplete="off" class="input" id="email" name="email" required>
+    </div>
+
+    <div>
+        <label for="password" >Password</label>
+        <input type="password" class="input" id="password" name="password" required>
+    </div>
+
+    <button type="submit" class="sendBtn">Login</button>
+</form>
+
+<div style="text-align:center"><a href="/register" class="regBtn" >Register</a></div>
